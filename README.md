@@ -1,5 +1,5 @@
 
-# ⚽ Soccer Team Chemistry
+# Soccer Team Chemistry
 
 This project explores the relationship between player chemistry and match outcomes using machine learning models.  
 **Author:** Tyler Gourley  
@@ -7,13 +7,13 @@ This project explores the relationship between player chemistry and match outcom
 
 ---
 
-## 🛠️ First-Time Setup Instructions
+## First-Time Setup Instructions
 
 <details>
 <summary><strong>1. Set Up the Virtual Environment</strong></summary>
 
 1. Follow this tutorial:  
-   👉 [Python Packaging Guide – Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
+   [Python Packaging Guide – Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 
 2. In summary:
 
@@ -76,7 +76,7 @@ This project explores the relationship between player chemistry and match outcom
 
 ---
 
-## 📈 Future Steps
+## Future Steps
 
 <details>
 <summary><strong>1. Compile Team Chemistry Data</strong></summary>
