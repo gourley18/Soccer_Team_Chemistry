@@ -10,7 +10,7 @@ This project explores the relationship between player chemistry and match outcom
 ## 🛠️ First-Time Setup Instructions
 
 <details>
-<summary><strong>Set Up the Virtual Environment</strong></summary>
+<summary><strong>1. Set Up the Virtual Environment</strong></summary>
 
 1. Follow this tutorial:  
    👉 [Python Packaging Guide – Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
@@ -48,7 +48,7 @@ This project explores the relationship between player chemistry and match outcom
 </details>
 
 <details>
-<summary><strong>Set Up the Database</strong></summary>
+<summary><strong>2. Set Up the Database</strong></summary>
 
 1. Download the database from **Box**  
 2. Place the file at:  
@@ -84,7 +84,7 @@ This project explores the relationship between player chemistry and match outcom
 - Compile `.csv` data for years 2012–present by running:
 
   ```bash
-  hpc_data_compilation/compilation_final.py
+  python hpc_data_compilation/compilation_final.py
   ```
 
 - For more info, see the README in the `hpc_data_compilation` folder.
