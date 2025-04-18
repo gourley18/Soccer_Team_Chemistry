@@ -5,14 +5,19 @@ This project explores the relationship between player chemistry and match outcom
 # **FIRST TIME SETUP INSTRUCTIONS**
 # To Set up the virtual environment:
    1. Follow this tutorial:
-     https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+
+       https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+   
      In Summary:
+   
        A. Create (and activate) a new virtual environment (you can choose the venv_name)
             python -m venv <venv_name>
           NOTE: This is how you activate your virtual environment on a Windows terminal: 
             .\<venv_name>\Scripts\activate
+   
        B. Upgrade pip (while the virtual environment is activated)
             python -m pip install --upgrade pip
+   
        C. Install packages into a virtual environment using the pip command
           Remember to ensure the virtual environment is activated!
             pip install -r 'requirements.txt'
