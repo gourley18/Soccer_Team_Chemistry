@@ -1,0 +1,8 @@
+
+# Virtual Environments
+ourvenv/
+ourvenv2/
+.venv/
+
+# Database
+*.db
