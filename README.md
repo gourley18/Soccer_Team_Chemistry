@@ -1,50 +1,130 @@
-# Soccer_Team_Chemistry
-This project explores the relationship between player chemistry and match outcomes using machine learning models. Authored by Tyler Gourley in collaboration with Dr. Willie Harrison and the BYU ICE Lab.
-#
-#
-# **FIRST TIME SETUP INSTRUCTIONS**
-# To Set up the virtual environment:
-   1. Follow this tutorial:
 
-       https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
-   
-     In Summary:
-   
-       A. Create (and activate) a new virtual environment (you can choose the venv_name)
-            python -m venv <venv_name>
-          NOTE: This is how you activate your virtual environment on a Windows terminal: 
-            .\<venv_name>\Scripts\activate
-   
-       B. Upgrade pip (while the virtual environment is activated)
-            python -m pip install --upgrade pip
-   
-       C. Install packages into a virtual environment using the pip command
-          Remember to ensure the virtual environment is activated!
-            pip install -r 'requirements.txt'
- 
-   2. Add your virtual environment to the .gitignore
-     Add the following line under the virtual environments section of the .gitignore:
-           <venv_name>/
- 
-# To Set up the database
-   1. Download the database from Box
-   2. Make sure the database is in the file location: db/lineups-data.db
-   3. Run the testDBConnection.py test script to ensure that a valid connection can be set up to the db
-   4. (Recommended) Download the SQLite Viewer extension on VSCode to easily interact with the database
-   5. Add the database to the .gitignore
-       - Make sure the following line of text is in the Database section of the .gitignore:
-           *.db
+# ⚽ Soccer Team Chemistry
 
+This project explores the relationship between player chemistry and match outcomes using machine learning models.  
+**Author:** Tyler Gourley  
+**Collaborators:** Dr. Willie Harrison and the BYU ICE Lab
 
-# Steps for the Future:
- 1. Finish compiling team chemistry data into .csv files (for years 2012-present)
-   - this is done by running hpc_data_compilation/compilation_final.py (For further details see README in hpc_data_compilation folder)
+---
 
- 2. Dataset Improvements (For further details see README in data folder)
-   - alter the input data, X. One way to potentially improve the dataset is to put the opponents team chemistry data in the lower triangular portion of the array. This will help the machine learning models have more to train on. This should most likely be done by adjusting the already created .csv files instead of recompiling from the database. The polars package in python provides an easy-to-work-with interface to take in information from .csv and rearrange the data into numpy arrays or tensors.
-   - change the output data, y. One way to accomplish this is change the problem from a regression problem (numerical output) to a classification problem (probability over *n* number outcomes). In our case, we can adjust the output to 3 classes: WIN, LOSS, and TIE. These can be represented using one-hot encoding, where WIN: [1 0 0], TIE: [0 1 0], and LOSS: [0 0 1] (for example). The output would then be a vector of length 3 (be sure to apply softmax to the logit outputs so the values sum to 1.0). So, an output of [0.76, 0.21, 0.03] would mean that the model is predicting a 76% probabilistic chance that the true outcome of that match is a WIN.
-   - There is a possibility to use minutes played (instead of games played) as the metric for chemistry. This would require regenerating the .csv files from the database, and slightly adjusting the algorithm used to create it.
+## 🛠️ First-Time Setup Instructions
 
- 3. Experiment with other machine learning models
-   - LSTM neural network, CNN, a neural net Clustering Algorithm, SVM, GRU, and more!
+<details>
+<summary><strong>Set Up the Virtual Environment</strong></summary>
 
+1. Follow this tutorial:  
+   👉 [Python Packaging Guide – Virtual Environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
+
+2. In summary:
+
+   **A. Create and activate a new virtual environment** (replace `<venv_name>` with your chosen name):
+
+   ```bash
+   python -m venv <venv_name>
+   ```
+
+   **Activate (Windows):**
+   ```bash
+   .\<venv_name>\Scripts\activate
+   ```
+
+   **B. Upgrade pip (while virtual environment is active):**
+   ```bash
+   python -m pip install --upgrade pip
+   ```
+
+   **C. Install project dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Add your virtual environment to `.gitignore`.  
+   Under the virtual environments section, include:
+
+   ```
+   <venv_name>/
+   ```
+
+</details>
+
+<details>
+<summary><strong>Set Up the Database</strong></summary>
+
+1. Download the database from **Box**  
+2. Place the file at:  
+   ```
+   db/lineups-data.db
+   ```
+
+3. Test the connection by running:
+
+   ```bash
+   python testDBConnection.py
+   ```
+
+4. *(Optional but Recommended)*  
+   Install the **SQLite Viewer** extension in VSCode to easily interact with the database.
+
+5. Add the database file to `.gitignore`.  
+   Under the "Database" section, ensure the following line exists:
+
+   ```
+   *.db
+   ```
+
+</details>
+
+---
+
+## 📈 Future Steps
+
+<details>
+<summary><strong>1. Compile Team Chemistry Data</strong></summary>
+
+- Compile `.csv` data for years 2012–present by running:
+
+  ```bash
+  hpc_data_compilation/compilation_final.py
+  ```
+
+- For more info, see the README in the `hpc_data_compilation` folder.
+
+</details>
+
+<details>
+<summary><strong>2. Improve the Dataset</strong></summary>
+
+See the README in the `data/` folder for more.
+
+- **Input data (X):**
+  - Consider placing opponent chemistry in the lower triangle of the array to enrich training data.
+  - Use the `polars` package to efficiently read `.csv` files and transform them into NumPy arrays or tensors.
+
+- **Output data (y):**
+  - Change from regression (numeric score) to classification (match outcome).
+  - Use **one-hot encoding** for outcomes:
+    - WIN → `[1, 0, 0]`
+    - TIE → `[0, 1, 0]`
+    - LOSS → `[0, 0, 1]`
+  - Apply `softmax` to model logits to ensure probabilities sum to 1.  
+    Example: `[0.76, 0.21, 0.03]` → 76% chance of WIN
+
+- **Alternative chemistry metric:**
+  - Use **minutes played** instead of games played.
+  - This requires updating the algorithm and re-generating `.csv` files from the database.
+
+</details>
+
+<details>
+<summary><strong>3. Try Other Machine Learning Models</strong></summary>
+
+Explore and evaluate:
+
+- LSTM (Long Short-Term Memory)
+- CNN (Convolutional Neural Network)
+- GRU (Gated Recurrent Unit)
+- SVM (Support Vector Machine)
+- Neural Net Clustering Algorithms
+- And more!
+
+</details>
